@@ -1,0 +1,4 @@
+name: HarvestMaster
+version: '${project.version}'
+main: ifly.imperialroma.harvestmaster.HarvestMaster
+api-version: '1.13'
