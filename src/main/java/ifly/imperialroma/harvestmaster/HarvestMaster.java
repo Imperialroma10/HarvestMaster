@@ -16,9 +16,10 @@ public final class HarvestMaster extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+        Liba liba = new Liba(this);
         storage = new ConfigStorage(this.getDataFolder()+ File.separator+"config.yml");
         storage.checkStorage();
-        Liba liba = new Liba(this);
+
         liba.registerMetrica(24123);
         Debug.setDebug(false);
 

@@ -6,13 +6,13 @@
 
     <groupId>ifly.imperialroma</groupId>
     <artifactId>harvestmaster</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
-    <name>harvestmaster</name>
+    <name>HarvestMaster</name>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>16</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
