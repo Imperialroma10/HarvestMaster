@@ -35,7 +35,7 @@ public class HarvestEvent implements Listener {
                     for(ItemStack itemStack : block.getDrops()){
                         block.getWorld().dropItem(block.getLocation().clone().add(0.5,0.5,0.5), itemStack);
                     }
-                    int exp = (int) HarvestMaster.getInstance().getStorage().getParam("expcount");
+                    int exp = (int) HarvestMaster.getInstance().getStorage().getInt("expcount");
                     if (exp > 0){
                         ExperienceOrb orb = block.getLocation().getWorld().spawn(block.getLocation().add(0.5, 0.5, 0.5), ExperienceOrb.class);
                         orb.setExperience(new Random().nextInt(exp));
