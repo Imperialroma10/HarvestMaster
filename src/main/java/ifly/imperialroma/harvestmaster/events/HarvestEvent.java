@@ -1,7 +1,9 @@
 package ifly.imperialroma.harvestmaster.events;
 
 import com.liba.utils.Debug;
+import es.yellowzaki.offlinegrowth.api.OfflineGrowthAPI;
 import ifly.imperialroma.harvestmaster.HarvestMaster;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
@@ -20,17 +22,20 @@ import java.util.Random;
 
 public class HarvestEvent implements Listener {
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void click(PlayerInteractEvent e){
-
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK){
             Block block = e.getClickedBlock();
+            if (block == null) return;
 
-
-            if (block != null && block.getType().name().endsWith("_STEM")) {
+            for (String str : HarvestMaster.getInstance().getBlock_type()){
+                if (str.equalsIgnoreCase(block.getType().name())) return;
+            }
+            if ( block.getType().name().endsWith("_STEM")) {
                 return;
             }
-            if (block != null && block.getBlockData() instanceof Ageable ageable) {
+
+            if (block.getBlockData() instanceof Ageable ageable) {
                 if (ageable.getAge() == ageable.getMaximumAge()) {
                     for(ItemStack itemStack : block.getDrops()){
                         block.getWorld().dropItem(block.getLocation().clone().add(0.5,0.5,0.5), itemStack);
@@ -43,6 +48,7 @@ public class HarvestEvent implements Listener {
 
                     ageable.setAge(0);
                     block.setBlockData(ageable);
+
                 }
 
             }

@@ -2,3 +2,10 @@ name: HarvestMaster
 version: '${project.version}'
 main: ifly.imperialroma.harvestmaster.HarvestMaster
 api-version: '1.13'
+folia-supported: true
+commands:
+  harvestmaster:
+    description: "/hm "
+    usage: "/hm "
+    aliases:
+      - hm
